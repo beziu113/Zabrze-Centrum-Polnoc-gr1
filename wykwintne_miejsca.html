@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Zabrze ~ Centrum Północ</title>
+<style>
+body {
+    margin: 0;
+    background-color: #f3efe9;
+    display: flex;
+    justify-content: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+    perspective: 1500px; /* potrzebne dla efektu flip */
+    overflow-x: hidden;
+}
 
+.page {
+    width: 720px;
+    min-height: 100vh;
+    background-color: #fbf9f6;
+    border: 4px solid #000;
+    box-shadow: 0 0 30px rgba(0,0,0,0.25);
+    padding: 40px 45px;
+    box-sizing: border-box;
+    text-align: center;
+    transform: rotateY(90deg);
+    transform-origin: left;
+    transition: transform 0.8s ease-in-out;
+}
+
+.page.show {
+    transform: rotateY(0deg);
+}
+
+/* dekoracje i wygląd */
+.decor-line {
+    font-size: 16px;
+    letter-spacing: 0;
+    color: #5a4632;
+    margin: 18px 0;
+    line-height: 1;
+}
+img {
+    display: block;
+    margin: 20px auto 25px auto;
+    max-width: 260px;
+}
+.final-image {
+    display: block;
+    margin: 20px auto 40px auto;
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    border: 2px solid #c9b8a4;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(90,70,50,0.15);
+}
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #5a4632;
+    margin: 10px 0;
+}
+nav {
+    margin: 20px 0;
+    font-size: 15px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+nav a {
+    color: #5a4632;
+    text-decoration: none;
+    font-weight: 600;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+nav .separator {
+    color: #5a4632;
+}
+h2 {
+    margin: 45px 0 20px 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #5a4632;
+}
+.intro-box {
+    background-color: #ffffff;
+    border: 2px solid #c9b8a4;
+    border-radius: 14px;
+    padding: 28px 30px;
+    max-width: 660px;
+    margin: 0 auto 40px auto;
+    box-shadow: 0 6px 18px rgba(90,70,50,0.15);
+    text-align: left;
+}
+.intro-box p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #2f261c;
+    margin: 0;
+}
+.map-image {
+    display: block;
+    margin: 20px auto 40px auto;
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    border: 2px solid #c9b8a4;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(90,70,50,0.15);
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 720px; 
+    padding-bottom: 56.25%; 
+    margin: 0 auto 40px auto;
+    height: 0;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* stopka */
+.footer {
+    margin-top: 40px;
+    padding: 20px 30px;
+    border-top: 2px solid #c9b8a4;
+    font-size: 13px;
+    color: #5a4632;
+    text-align: justify;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+.footer p {
+    margin: 0;
+}
+</style>
+</head>
+<body>
+<div class="page">
+    <div class="decor-line">————————————————————————————————————————</div>
+    <img src="POL_Zabrze_flag.svg.png" alt="Flaga Zabrza">
+    <h1>⟪ Zabrze ~ Centrum Północ ⟫</h1>
+    <div class="decor-line">————————————————————————————————————————</div>
+
+    <nav>
+        <a href="index.html">Wróć</a>
+           <span class="separator">|</span>
+        <a href="przewodnicząca.html">Przewodnicząca</a>
+           <span class="separator">|</span>
+       <a href="skarbnik.html">Skarbnik</a>
+           <span class="separator">|</span>
+       <a href="sekretarz.html">Sekretarz</a>
+
+    </nav>
+
+    <div class="decor-line">————————————————————————————————————————</div>
+
+    <h2>Zarząd Dzielnicy</h2>
+    <div class="intro-box">
+        <p>
+        <strong>Dzielnice Zabrza</strong>  „Centrum Północ”, tworzą niezwykle ciekawe, piękne miejsca, które są warte uwagi turystów.<br>
+          Powyżej znajdują się podstrony do wybranych przez nas lokalizacji.
+        </p>
+    </div>
+
+    <div class="decor-line">————————————————————————————————————————</div>
+
+    <!-- Obraz na końcu -->
+    <img src="ChatGPT Image 18 lut 2026, 19_20_41.png" alt="Mapa Centrum Północ" class="final-image">
+</div>
+
+<script>
+// efekt „przewracania strony” przy wejściu
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.page').classList.add('show');
+});
+
+// efekt flip przy klikaniu linków w nawigacji
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelector('.page').classList.remove('show');
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 800); // czas dopasowany do animacji
+    });
+});
+</script>
+</body>
+</html>
